@@ -1,129 +1,137 @@
-# fraud-detection-system
-(Machine learning-based financial fraud detection system using data preprocessing and classification models).
-# 🔐 Financial Fraud Detection System (Machine Learning + Streamlit)
+🔐 Financial Fraud Detection System (End-to-End Machine Learning Project)
 
-## Overview
-This project is a machine learning-based system that detects fraudulent financial transactions. It compares multiple classification models and selects the best-performing model, which is then deployed in an interactive web application using Streamlit.
+A complete machine learning-based fraud detection system that trains multiple classification models, selects the best-performing model based on F1-score, and deploys it using a Streamlit web application for real-time fraud prediction.
 
----
+🚀 Project Overview
 
-## 🚀 Features
-- Data preprocessing and feature engineering  
-- Multiple ML model training and comparison:
-  - Logistic Regression  
-  - Decision Tree  
-  - Random Forest  
-- Best model selected based on F1 Score  
-- Model saved using Pickle  
-- Interactive Streamlit web application  
-- Real-time fraud prediction with probability score  
+Financial fraud detection is a critical problem in banking and digital transactions.
+This system builds an end-to-end ML pipeline that:
 
----
+Trains multiple machine learning models
+Evaluates and compares performance
+Selects the best model automatically
+Deploys it in a real-time web application
+Predicts fraud probability for financial transactions
+🧠 System Architecture
+Dataset (fraud.csv)
+        ↓
+Data Preprocessing
+        ↓
+Train-Test Split (Stratified)
+        ↓
+Model Training:
+   - Logistic Regression
+   - Decision Tree
+   - Random Forest
+        ↓
+Model Evaluation (Accuracy, Precision, Recall, F1 Score)
+        ↓
+Best Model Selection (Based on F1 Score)
+        ↓
+Model Serialization (Pickle)
+        ↓
+Streamlit Web App
+        ↓
+Real-time Fraud Prediction
+⚙️ Features
+🧠 Machine Learning Pipeline
+Multiple model training and comparison
+Handles class imbalance using class_weight="balanced"
+Automatic best model selection based on F1-score
+Model persistence using Pickle
+📊 Evaluation Metrics
+Accuracy
+Precision
+Recall
+F1 Score
+🌐 Web Application (Streamlit)
+Real-time fraud prediction
+Fraud probability scoring
+Interactive transaction input system
+Demo modes:
+Manual input
+Real legitimate transaction sample
+Real fraudulent transaction sample
+🧪 Models Used
+Model	Type
+Logistic Regression	Linear classifier
+Decision Tree	Tree-based model
+Random Forest	Ensemble model (Best Performer)
+📊 Model Training Logic
+Dataset split: 80/20 (stratified)
+Evaluation metrics computed for each model
+Best model selected using F1-score optimization
+Final model saved as:
+models/fraud_model.pkl
+🖥️ Web Application Features
 
-## 🧠 Machine Learning Pipeline
+Built using Streamlit:
 
-### Dataset
-- Credit Card Fraud Detection dataset  
-- Target column: `Class`  
-  - `0` → Legitimate transaction  
-  - `1` → Fraudulent transaction  
-
-⚠️ Note: The dataset file is not included in this repository due to large size. Users should download the dataset separately and place it in the `data/` folder as `fraud.csv`.
-
----
-
-### Model Training (`model.py`)
-- Train-test split (80/20, stratified)  
-- Models used:
-  - Logistic Regression  
-  - Decision Tree  
-  - Random Forest  
-- Evaluation metrics:
-  - Accuracy  
-  - Precision  
-  - Recall  
-  - F1 Score  
-- Best model selected automatically based on F1 Score  
-- Model saved as: models/fraud_model.pkl
-==================================================================================================================================
-- ## 🌐 Web Application (`app.py`)
-
-Built using Streamlit, the application provides:
-
-### Input Modes
-- Manual transaction input (Time + Amount)  
-- Real legitimate transaction (dataset sample)  
-- Real fraudulent transaction (dataset sample)  
-
-### Features
-- Fraud probability prediction  
-- Progress bar visualization  
-- Clear output:
-  - 🚨 Fraudulent Transaction  
-  - ✅ Legitimate Transaction  
-- Custom styled UI  
-
----
-
-## 📊 Prediction Logic
-- Model outputs fraud probability  
-- Threshold:
-  - ≥ 30% → Fraudulent  
-  - < 30% → Legitimate  
-
----
-
-## 🛠️ Tech Stack
-- Python  
-- Pandas  
-- NumPy  
-- Scikit-learn  
-- Streamlit  
-- Pickle
-
-- ==================================================================================================================
-
-- ## 📁 Project Structure
-
+🔍 Real-time fraud prediction
+📊 Fraud probability visualization
+⚡ Fast inference using trained ML model
+🧪 Multiple testing modes:
+Manual transaction input
+Real dataset samples (fraud & legitimate)
+📁 Project Structure
 fraud-detection-system/
 │
-├── app.py
-├── model.py
-├── README.md
+├── app.py                  # Streamlit web application
+├── model.py               # ML training + model selection
 │
 ├── models/
-│ └── fraud_model.pkl
+│   └── fraud_model.pkl    # Saved trained model
 │
-└── data/
-└── fraud.csv (not included)
+├── data/
+│   └── fraud.csv          # Dataset (not included in repo)
+│
+└── README.md
+▶️ How to Run the Project
+1. Install dependencies
+pip install numpy pandas scikit-learn streamlit
+2. Add dataset
 
-====================================================================================================================
+Place dataset as:
 
-
----
-
-## ▶️ How to Run
-
-### 1. Install dependencies
-pip install pandas numpy scikit-learn streamlit
-
-### 2. Train the model
+data/fraud.csv
+3. Train the model
 python model.py
-
-### 3. Run the web app
+4. Run the web app
 streamlit run app.py
+🔍 How It Works
+Model training script compares multiple ML algorithms
+Best model is selected using F1-score
+Model is saved using Pickle
+Streamlit app loads trained model
+User inputs transaction data
+System predicts fraud probability
+Output is classified:
+≥ 30% → 🚨 Fraudulent Transaction
+< 30% → ✅ Legitimate Transaction
+📌 Key Highlights
+End-to-end ML lifecycle implementation
+Automated model selection pipeline
+Handles imbalanced dataset using class weighting
+Real-time deployment using Streamlit
+Production-style model persistence
+Probability-based fraud scoring system
+⚠️ Limitations
+No real-time streaming data ingestion
+No API backend (Streamlit only)
+Model trained on static dataset
+🚀 Future Improvements
+Add XGBoost / LightGBM for better accuracy
+Deploy using FastAPI + Docker
+Add SHAP explainability for model decisions
+Add database logging system
+Real-time transaction API integration
+👨‍💻 Author
 
-===================================================================================================================
----
+Nayan Padath Murali
 
-## 📌 Key Highlights
-- End-to-end ML pipeline  
-- Model comparison and evaluation  
-- Real-time fraud detection system  
-- Interactive web interface  
-- Professional project structure  
+Aspiring Cybersecurity & Machine Learning Engineer
+Focused on building real-world AI + security systems.
 
----
+🔐 Disclaimer
 
-## 👨‍💻 Author
-Nayan Padath Murali 
+This project is for educational purposes only and should not be used in production financial systems without proper validation and regulatory compliance.
